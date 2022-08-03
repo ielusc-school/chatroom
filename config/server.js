@@ -14,6 +14,8 @@ app.use(express.static('./app/public'));
 app.use(express.json());
 app.use(express.urlencoded({extended: true}));
 
+app.use(expressValidator());
+
 //autoload routes, controllers, models for objects app 
 consign()
 .include('app/routes')
