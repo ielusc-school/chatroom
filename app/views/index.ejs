@@ -24,19 +24,58 @@
                             </div>
                         </div>
                         <div class="panel-body">
-                            <form accept-charset="UTF-8" role="form" class="form-signin">
+                            <!-- 
+                                ADICIONANDO UMA ACTION E UM METHOD 
+                                PARA FAZER REDIRECIONAMENTO 
+                                PARA ROTA /CHAT USANDO O METHOD /POST 
+                             -->
+                            <form 
+                                accept-charset="UTF-8" 
+                                role="form" 
+                                class="form-signin"
+                                action="/chat"
+                                method="post">
                                 <fieldset>
                                     <label class="panel-login">
                                         <div class="login_result"></div>
                                     </label>
-                                    <input class="form-control" placeholder="Nome ou apelido" id="apelido" type="text">
+                                    <input 
+                                        class="form-control" 
+                                        placeholder="Nome ou apelido" 
+                                        id="apelido" 
+                                        name="apelido"
+                                        type="text">
                                     <br></br>
-                                    <input class="btn btn-lg btn-success btn-block" type="submit" id="entrar" value="Entrar »">
+                                    <input 
+                                        class="btn btn-lg btn-success btn-block" 
+                                        type="submit" 
+                                        id="entrar" 
+                                        value="Entrar »">
                                 </fieldset>
                             </form>
                         </div>
                     </div>
                 </div>
+
+                <!-- EXIBIR ERROS PARA O USUARIO -->
+                <div>
+                    <% if(validacao.length > 0) { %>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="alert alert-danger">
+                                    <strong>ATENÇÃO!</strong>
+                                    <ul>
+                                        <% for(var i=0; i< validacao.length; i++) { %>
+                                          <li> <%= validacao[i].msg %></li>
+                                         <% } %>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    
+                    <% } %>
+                </div>
+                <!-- / ENCERRA VALIDAÇÃO DE ERROS PARA O USUARIO -->
             </div>
         </div>
 		
